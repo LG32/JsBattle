@@ -1,0 +1,40 @@
+{
+  "name": "jsbattle",
+  "version": "2.5.0",
+  "description": "",
+  "main": "dist/js/jsbattle.min.js",
+  "scripts": {
+    "start": "./dist/jsbattle.js start ...",
+    "clean": "rimraf dist",
+    "build": "npm run build:server && npm run build:webpage",
+    "build:webpage": "cpx './node_modules/jsbattle-webpage/dist/**/*' ./dist/public",
+    "build:server": "cpx './src/**/*' ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamro/jsbattle"
+  },
+  "author": "Krzysztof Jamroz <jamro@jamro.net>",
+  "license": "MIT",
+  "bin": {
+    "jsbattle": "./dist/jsbattle.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "jsbattle-docs": "^2.5.0",
+    "jsbattle-engine": "^2.5.0",
+    "jsbattle-server": "^2.5.0",
+    "jsbattle-webpage": "^2.5.0",
+    "path": "^0.12.7",
+    "yargs": "^12.0.5"
+  },
+  "gitHead": "b086d7f5befb0506cc4f1ef9a6450cf2591b9b7d"
+}

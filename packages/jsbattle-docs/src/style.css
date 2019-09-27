@@ -1,0 +1,131 @@
+body {
+  font-family: BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 14px;
+  margin: 2em;
+}
+p {
+  text-align: justify;
+}
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+h2 {
+  border-bottom: 2px solid #888;
+}
+
+h2 {
+  margin-top: 50px;
+}
+
+h2 ~ *:not(h2) {
+    margin-left: 15px;
+}
+h3 ~ *:not(h3) ~ *:not(h2) {
+    margin-left: 30px;
+}
+h4 ~ *:not(h4) ~ *:not(h3)  ~ *:not(h2)  {
+    margin-left: 45px;
+}
+h5 ~ *:not(h5) ~ *:not(h4)  ~ *:not(h3)  ~ *:not(h2)  {
+    margin-left: 60px;
+}
+
+h2 ~ table:not(h2) {
+    padding-right: 15px;
+}
+h3 ~ table:not(h3) {
+    padding-right: 30px;
+}
+h4 ~ table:not(h4) {
+    padding-right: 45px;
+}
+h5 ~ table:not(h5) {
+    padding-right: 60px;
+}
+
+
+pre > code {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+table {
+  border-spacing: 0px;
+  border-collapse: separate;
+  width: 100%;
+}
+
+tbody > tr > td {
+  border-bottom: 1px solid #aaa;
+  padding: 1em;
+  margin: 0px;
+}
+
+thead> tr > th {
+  background-color: #eee;
+  border-bottom: 1px solid #333;
+  padding: 1em;
+  margin: 0px;
+  text-align: left;
+}
+
+a, a:hover, a:visited, a:active {
+  color: #25b;
+}
+
+
+#side {
+  display: block;
+  width: 280px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  padding-left: 20px;
+  background-color: #f4f4f4;
+  border-right: 1px solid #e4e4e4;
+  overflow: scroll;
+}
+
+#side h1 {
+  font-weight: 100;
+  border-bottom: 1px solid #000;
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+#side ul {
+  padding: 0.6em 1em;
+}
+
+#side li {
+  margin: 0.5em auto;
+}
+
+#main {
+  margin-left: 300px;
+}
+@media (max-width: 800px) {
+  #side {
+    display: none;
+  }
+
+  #main {
+    margin-left: 0px;
+  }
+}

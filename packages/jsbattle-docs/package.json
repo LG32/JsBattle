@@ -1,0 +1,62 @@
+{
+  "name": "jsbattle-docs",
+  "version": "2.5.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server -c-1 ./dist",
+    "watch": "npm-watch",
+    "clean": "rimraf dist",
+    "lint": "puml testdot",
+    "build": "npm run-script build:api && npm run-script build:puml && npm run-script build:html && npm run-script build:copy",
+    "test": "npm run-script test:start && npm run-script test:exec && npm run-script test:stop",
+    "build:api": "cpx ./node_modules/jsbattle-engine/docs/api.md ./docs/dev_guide",
+    "build:puml": "./build/puml-batch.js generate -i ./src/puml -o ./docs/img/puml",
+    "build:html": "./build/md2html.js",
+    "build:copy": "npm run-script build:copy-img && npm run-script build:copy-static",
+    "build:copy-img": "cpx './docs/img/**/*' ./dist/img",
+    "build:copy-static": "cpx './src/style.css' ./dist/",
+    "test:start": "./build/test-server.js start -p 8077 -r ./dist &",
+    "test:exec": "mocha --require @babel/register test/*.test.js",
+    "test:stop": "./build/test-server.js stop -p 8077"
+  },
+  "watch": {
+    "build:html": {
+      "patterns": [
+        "docs/**/*.*"
+      ],
+      "verbose": true
+    },
+    "build:copy-static": {
+      "patterns": [
+        "src/style.css"
+      ],
+      "verbose": true
+    }
+  },
+  "keywords": [],
+  "author": "Krzysztof Jamroz <jamro@jamro.net>",
+  "license": "MIT",
+  "dependencies": {
+    "jsbattle-engine": "^2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "babel-polyfill": "^6.26.0",
+    "cpx": "^1.5.0",
+    "express": "^4.16.4",
+    "http-server": "^0.11.1",
+    "mocha": "^5.2.0",
+    "node-plantuml": "^0.7.0",
+    "npm-watch": "^0.6.0",
+    "puppeteer": "^1.11.0",
+    "rimraf": "^2.6.2",
+    "showdown": "^1.9.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "yargs": "^12.0.5"
+  },
+  "gitHead": "b086d7f5befb0506cc4f1ef9a6450cf2591b9b7d"
+}
